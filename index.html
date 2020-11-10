@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dek-D Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <input type="radio" name="r" id="r1" checked>
+        <input type="radio" name="r" id="r2">
+        <input type="radio" name="r" id="r3">
+        <input type="radio" name="r" id="r4">
+        <input type="radio" name="r" id="r5">
+
+        <div class='slider'>
+            <div id="s1" class="slide s1"></div>
+            <div id="s2" class="slide"></div>
+            <div id="s3" class="slide"></div>
+            <div id="s4" class="slide"></div>
+            <div id="s5" class="slide"></div>
+        </div>
+        <div class="page">
+            <div id='l' class="page-l">
+                <div class="page-text">&lt;</div>
+            </div>
+            <div id='r' class="page-r">
+                <div class="page-text">&gt;</div>
+            </div>
+        </div>
+        <div class="label--group">
+            <label id="l1" for="r1"></label>
+            <label id="l2" for="r2"></label>
+            <label id="l3" for="r3"></label>
+            <label id="l4" for="r4"></label>
+            <label id="l5" for="r5"></label>
+        </div>
+    </div>
+    <script>
+        document.getElementById('l').addEventListener('click', () => {
+            console.log('left');
+            const rbs = document.querySelectorAll('input[name="r"]');
+            let id;
+            for (const rb of rbs) {
+                if (rb.checked) {
+                    id = parseInt(rb.id.substring(1, 2));
+                    break;
+                }
+            }
+            if (id == 1) {
+                id = 5
+            } else {
+                id--
+            }
+            document.getElementById(`r${id}`).checked = true
+        })
+        document.getElementById('r').addEventListener('click', () => {
+            console.log('right');
+            const rbs = document.querySelectorAll('input[name="r"]');
+            let id;
+            for (const rb of rbs) {
+                if (rb.checked) {
+                    id = parseInt(rb.id.substring(1, 2));
+                    break;
+                }
+            }
+            if (id == 5) {
+                id = 1
+            } else {
+                id++
+            }
+            document.getElementById(`r${id}`).checked = true
+        })
+    </script>
+</body>
+
+</html>

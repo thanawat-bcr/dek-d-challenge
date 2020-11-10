@@ -1,0 +1,129 @@
+*,
+*::after,
+*::before {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  padding-top: 4rem;
+}
+
+.container {
+  width: 100vw;
+  height: 30rem;
+  overflow-x: hidden;
+  position: relative;
+}
+
+.slider {
+  display: flex;
+  position: relative;
+  height: 100%;
+  width: 500%;
+}
+
+.slide {
+  width: 20%;
+  height: 30rem;
+  background-color: lightcoral;
+  background-position: cover;
+  background-position: center;
+  transition: 1s;
+}
+.slide:nth-child(odd) {
+  background-color: lightsalmon;
+}
+
+.label--group {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+}
+label {
+  border: white solid 1px;
+  width: 5rem;
+  height: 1rem;
+  margin: 5px;
+  transition: 300ms;
+}
+
+#s1 {
+  background-image: url('./ls1.jpg');
+}
+#s2 {
+  background-image: url('./ls2.jpg');
+}
+#s3 {
+  background-image: url('./ls3.jpg');
+}
+#s4 {
+  background-image: url('./ls4.jpg');
+}
+#s5 {
+  background-image: url('./ls5.jpg');
+}
+
+input {
+  display: none;
+}
+#r1:checked ~ .label--group #l1 {
+  background-color: white;
+}
+#r2:checked ~ .label--group #l2 {
+  background-color: white;
+}
+#r3:checked ~ .label--group #l3 {
+  background-color: white;
+}
+#r4:checked ~ .label--group #l4 {
+  background-color: white;
+}
+#r5:checked ~ .label--group #l5 {
+  background-color: white;
+}
+
+#r1:checked ~ .slider .s1 {
+  margin-left: 0;
+}
+#r2:checked ~ .slider .s1 {
+  margin-left: -20%;
+}
+#r3:checked ~ .slider .s1 {
+  margin-left: -40%;
+}
+#r4:checked ~ .slider .s1 {
+  margin-left: -60%;
+}
+#r5:checked ~ .slider .s1 {
+  margin-left: -80%;
+}
+.page {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 2rem;
+}
+.page .page-l,
+.page .page-r {
+  cursor: pointer;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  position: relative;
+}
+.page-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -55%);
+  color: white;
+  font-size: 1.5rem;
+}
